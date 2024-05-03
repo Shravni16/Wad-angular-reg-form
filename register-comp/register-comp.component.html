@@ -1,0 +1,39 @@
+<div class="container">
+    <h1>Registration Form</h1>
+    <form #loginForm="ngForm" (ngSubmit)="submit(loginForm)" class="form-container" *ngIf="!submittedSuccessfully" >
+        <div class="form-group label-inp">
+            <label for="firstname" class="label">First Name : {{"   "}}</label>
+            <input   #name="ngModel"required type="text" name="firstname" ngModel class="form-control"/>
+            <span class="spn-msg" *ngIf="name.touched && name.invalid">Please enter First name</span>
+        </div>
+
+        <div class="form-group label-inp">
+            <label for="lastname">Last Name : {{"   "}}</label>
+            <input #lname="ngModel" required  type="text" name="lastname" ngModel class="form-control"/>
+            <span class="spn-msg" *ngIf="lname.touched && lname.invalid">Please enter Last name</span>
+        </div>
+
+        <div class="form-group label-inp">
+            <label for="email">Email : {{"   "}}</label>
+            <input required #ename="ngModel" type="text" name="email" ngModel class="form-control"/>
+            <span class="spn-msg"  *ngIf="ename.touched && ename.invalid">Please enter Email</span>
+        </div>
+
+        <div class="form-group label-inp">
+            <label for="password"> Password : {{"   "}}</label>
+            <input required #pname="ngModel" type="password" name="password" ngModel class="form-control"/>
+            <span class="spn-msg"  *ngIf="pname.touched && pname.invalid">Please enter Password</span>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+
+    <div *ngIf="submittedSuccessfully" class="thank-you">
+        <p>Thank you for registering!</p>
+    </div>
+
+    <div   *ngIf="notsubmitted" class="not-submit">
+        Not Submitted
+      
+
+    </div>
+</div>
